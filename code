@@ -1,0 +1,40 @@
+data = []
+choice = 'random'
+
+def line():
+  print('************************')
+
+def show_menu():
+  line()
+  print('MANU')
+  line()
+  print('1. add item')
+  print('2. Remove item')
+  print('3. view list')
+  print('4. edit list')
+  print('5. exit')
+  line()
+  choice = input('Enter a number that you choice: ')
+  return choice
+
+while choice != '5':
+    choice = show_menu()
+    if choice == '1':
+        item = input('What is to be done? ')
+        data.append(item)
+        print('Item', item, 'added')
+    elif choice == '2':
+        item = input('What is to be marked as done? ')
+        if item in data:
+            data.remove(item)
+            print('Removed item', item)
+        else:
+            print('Could not find item', item)
+    elif choice == '3':
+        print('List of to-do items:')
+        for item in data:
+            print(item)
+    elif choice == '5':
+        print('Goodbye!')
+    else:
+        print('Please enter one of 1, 2, 3 or 4')
